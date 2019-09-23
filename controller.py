@@ -17,6 +17,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         flag = False
         charNum = 0
         wordNum = 0
+        engNum = 0
         for i in range(0,  length):
             if((not flag) and string[i:i+1] != " "):
                 flag = True
@@ -25,8 +26,11 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
                 flag = False
             if(flag):
                 charNum += 1
+                if string[i:i+1] >="A" and string[i:i+1] <="Z" or string[i:i+1] >="a" and string[i:i+1]<="z":
+                    engNum += 1;
         self.wordNumberLabel.setText(str(wordNum))
         self.characterNumberLabel.setText(str(charNum))
+        self.engNumberLabel.setText(str(engNum))
 
 if __name__=="__main__" :
     app = QApplication(sys.argv)
